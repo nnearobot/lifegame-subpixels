@@ -10,8 +10,8 @@ use winit::window::{Window, WindowAttributes, WindowId};
 mod game_of_life;
 use game_of_life::GameOfLife;
 
-const WIDTH: u32 = 99;
-const HEIGHT: u32 = 99;
+const WIDTH: u32 = 300;
+const HEIGHT: u32 = 300;
 
 struct Application {
     window: Option<Arc<Window>>,

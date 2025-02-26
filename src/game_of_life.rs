@@ -40,9 +40,9 @@ impl GameOfLife {
 
     pub fn pixel_color(&self, i: usize) -> [u8; 4] {
         if self.grid[i] {
-            [0xFF, 0xFF, 0xFF, 0xFF] // white pixel
+            [255, 255, 255, 255] // white pixel
         } else {
-            [0x00, 0x00, 0x00, 0xFF] // black pixel
+            [0, 0, 0, 255] // black pixel
         }
     }
 
