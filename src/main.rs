@@ -7,6 +7,7 @@ use winit::event::WindowEvent;
 use winit::event_loop::{ActiveEventLoop, ControlFlow, EventLoop};
 use winit::window::{Window, WindowAttributes, WindowId};
 
+
 mod game_of_life;
 use game_of_life::GameOfLife;
 
@@ -54,14 +55,12 @@ impl ApplicationHandler for Application {
                     window.request_redraw();
                     Some(pixels)
                 }
-                Err(err) => {
+                Err(_err) => {
                     event_loop.exit();
                     None
                 }
             }
         };
-
-        self.game.randomize();
     }
 
     fn window_event(&mut self, event_loop: &ActiveEventLoop, _: WindowId, event: WindowEvent) {
