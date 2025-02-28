@@ -25,12 +25,45 @@ impl GameOfLife {
 
     pub fn pixel_color(&self, i: usize) -> [u8; 4] {
         if self.grid[i] {
-            [255, 0, 255, 255] // white pixel
+            [0, 255, 255, 255] // white pixel
         } else {
             [0, 0, 0, 255] // black pixel
         }
     }
 }
+
+
+pub struct GameOfLifeSubpixels {
+    grid: Vec<bool>,
+    width: usize,
+    height: usize,
+}
+
+impl GameOfLifeSubpixels {
+    /// Create a new game state with all cells dead.
+    pub fn new(width: usize, height: usize) -> Self {
+        let grid = new_grid(width * 3, height);
+        GameOfLifeSubpixels { grid, width: width * 3, height }
+    }
+
+    /// Randomize the grid.
+    pub fn randomize(&mut self) {
+        self.grid = new_grid(self.width, self.height);
+    }
+
+    /// Update the grid using the standard Game of Life rules.
+    pub fn update(&mut self) {
+        self.grid = next(&self.grid, self.width, self.height);
+    }
+
+    pub fn pixel_color(&self, i: usize) -> [u8; 4] {
+        let r = if self.grid[3 * i + 0] { 255 } else { 0 };
+        let g = if self.grid[3 * i + 1] { 255 } else { 0 };
+        let b = if self.grid[3 * i + 2] { 255 } else { 0 };
+        [r, g, b, 255]
+    }
+}
+
 
 fn next(grid: &Vec<bool>, width: usize, height: usize) -> Vec<bool> {
     let mut next = grid.clone();

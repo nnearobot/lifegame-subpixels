@@ -9,20 +9,20 @@ use winit::window::{Window, WindowAttributes, WindowId};
 
 
 mod game_of_life;
-use game_of_life::GameOfLife;
+use game_of_life::GameOfLifeSubpixels;
 
-const WIDTH: u32 = 300;
-const HEIGHT: u32 = 300;
+const WIDTH: u32 = 100;
+const HEIGHT: u32 = 100;
 
 struct Application {
     window: Option<Arc<Window>>,
     pixels: Option<Pixels<'static>>,
-    game: GameOfLife,
+    game: GameOfLifeSubpixels,
 }
 
 impl Application {
     fn new() -> Self {
-        let game = GameOfLife::new(WIDTH as usize, HEIGHT as usize);
+        let game = GameOfLifeSubpixels::new(WIDTH as usize, HEIGHT as usize);
         Self {
             window: None,
             pixels: None,
