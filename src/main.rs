@@ -13,8 +13,8 @@ use winit::window::{Window, WindowAttributes, WindowId};
 mod game_of_life;
 use game_of_life::GameOfLife;
 
-const WIDTH: u32 = 60;
-const HEIGHT: u32 = 60;
+const WIDTH: u32 = 100;
+const HEIGHT: u32 = 100;
 const LIFE_DENSITY_DEFAULT: f64 = 0.08;
 const SPEED_DEFAULT: u64 = 3;
 const SLEEP_TIME_LIST: [u64; 7] = [500, 300, 150, 80, 50, 25, 0];
