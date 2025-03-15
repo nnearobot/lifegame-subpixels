@@ -72,11 +72,22 @@ impl GameOfLife {
         // Check neighbors in a 3x3 block around (x, y)
         for dy in [-1, 0, 1].iter().cloned() {
             for dx in [-1, 0, 1].iter().cloned() {
+                // Skip the cell itself
                 if dx == 0 && dy == 0 {
-                    continue; // Skip the cell itself
+                    continue;
                 }
-                let nx = (x as isize + dx + self.width as isize) % self.width as isize;
-                let ny = (y as isize + dy + self.height as isize) % self.height as isize;
+
+                let nx = x as isize + dx as isize;
+                let ny = y as isize + dy as isize;
+
+                // skip the cell that is out of bounds
+                if nx < 0 || nx >= self.width as isize {
+                    continue;
+                }
+                if ny < 0 || ny >= self.height as isize {
+                    continue;
+                }
+
                 let idx = self.index(nx as usize, ny as usize);
                 if self.grid[idx] {
                     count += 1;
