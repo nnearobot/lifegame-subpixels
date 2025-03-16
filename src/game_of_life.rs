@@ -27,15 +27,17 @@ impl GameOfLife {
         self.grid = self.next();
     }
 
-    pub fn pixel_color(&self, i: usize) -> [u8; 4] {
+    pub fn pixel_color(&mut self, x: usize, y: usize) -> [u8; 4] {
         match self.subpixels {
             true => {
-                let r = if self.grid[3 * i + 0] { 255 } else { 0 };
-                let g = if self.grid[3 * i + 1] { 255 } else { 0 };
-                let b = if self.grid[3 * i + 2] { 255 } else { 0 };
+                let i = self.index(x * 3, y);
+                let r = if self.grid[i + 0] { 255 } else { 0 };
+                let g = if self.grid[i + 1] { 255 } else { 0 };
+                let b = if self.grid[i + 2] { 255 } else { 0 };
                 [r, g, b, 255]
             },
             false => {
+                let i = self.index(x, y);
                 if self.grid[i] {
                     [255, 255, 255, 255]
                 } else {

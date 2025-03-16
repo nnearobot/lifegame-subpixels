@@ -41,7 +41,7 @@ To start the game in regular pixels mode, set the `SUBPIXELS` constant to `false
 const SUBPIXELS: bool = false;
 ```
 
-<img src="img/pixels.png" alt="Game of life on pixels" width="480" height="448">
+<img src="img/pixels.png" alt="Game of life on pixels" width="255" height="300">
 
 
 ## Game of Life on Subpixels
@@ -52,7 +52,7 @@ To start the game in subpixels mode, set the `SUBPIXELS` constant to `true` in t
 const SUBPIXELS: bool = true;
 ```
 
-<img src="img/subpixels.jpg" alt="Game of life on pixels" width="585" height="582">
+<img src="img/subpixels.png" alt="Game of life on pixels" width="132" height="145">
 
 
 ### Important Note for Subpixels Mode
