@@ -6,10 +6,10 @@ The game can be run on both regular pixels and subpixels.
 
 ## Default Settings
 
-- **Grid Width:** 100 cells
-- **Grid Height:** 100 cells
-- **Life Density:** 0.08 (8% of the cells are alive initially)
-- **Speed:** 3 (medium speed)
+- **Grid Width:** 50 cells
+- **Grid Height:** 50 cells
+- **Life Density:** 8% of the cells are alive initially
+- **Speed:** 0
 - **Subpixels:** Enabled
 
 ## Controls
